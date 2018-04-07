@@ -1,21 +1,44 @@
 import React, { Component } from 'react';
-import { Row, Col, ListGroup, ListGroupItem, } from 'reactstrap';
+import {
+    Row,
+    Col,
+    ListGroup,
+} from 'reactstrap';
 
-import shoppingListContext from '../../components/contexts/shoppingListContext';
+import withShoppingList from '../../components/contexts/shoppingList/withShoppingList';
+import Item from './Item';
 
 class ItemsList extends Component {
     state = {}
 
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
+    renderUncheckedItems() {
+        const props = this.props;
+
+        return props.state.items
+            .filter(x => x.checked === false)
+            .map((val, index) => (
+                <Item
+                    key={index}
+                    id={val.id}
+                    description={val.description}
+                    checked={val.checked}
+                />
+            ));
     }
 
-    renderItems() {
-        console.log(this.props.shoppingList.items)
+    renderCheckedItems() {
+        const props = this.props;
 
-        return this.props.shoppingList.items.map((val, index) => (
-            <ListGroupItem tag="button" action>{val.title}</ListGroupItem>
-        ));
+        return props.state.items
+            .filter(x => x.checked === true)
+            .map((val, index) => (
+                <Item
+                    key={index}
+                    id={val.id}
+                    description={val.description}
+                    checked={val.checked}
+                />
+            ));
     }
 
     render() {
@@ -23,7 +46,8 @@ class ItemsList extends Component {
             <Row>
                 <Col>
                     <ListGroup>
-                        {this.renderItems()}
+                        {this.renderUncheckedItems()}
+                        {this.renderCheckedItems()}
                     </ListGroup>
                 </Col>
             </Row>
@@ -31,4 +55,4 @@ class ItemsList extends Component {
     }
 }
 
-export default shoppingListContext(ItemsList);
+export default withShoppingList(ItemsList);

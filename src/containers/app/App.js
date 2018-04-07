@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import Content from '../../components/layout/Content';
+import Dashboard from '../dashboard/Dashboard';
 import ShoppingList from '../shoppingList/ShoppingList';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
         <Content>
           <Switch>
             <Route exact path="/" component={ShoppingList} />
+            <Route exact path="/dashboard" component={Dashboard} />
           </Switch>
         </Content>
       </Router>

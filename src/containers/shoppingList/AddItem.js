@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { InputGroup, InputGroupAddon, Button, Input, Row, Col, } from 'reactstrap';
 
-import shoppingListContext from '../../components/contexts/shoppingListContext';
+import withShoppingList from '../../components/contexts/shoppingList/withShoppingList';
 
 class AddItem extends Component {
     state = {
@@ -10,10 +10,9 @@ class AddItem extends Component {
     }
 
     addNewItem = () => {
-        this.props.addItem({
-            title: this.state.inputValue,
-            checked: false,
-        });
+        if (!this.state.inputValue) return;
+
+        this.props.actions.addItem(this.state.inputValue);
 
         this.resetField();
     }
@@ -44,5 +43,4 @@ class AddItem extends Component {
     }
 }
 
-
-export default shoppingListContext(AddItem);
+export default withShoppingList(AddItem);
