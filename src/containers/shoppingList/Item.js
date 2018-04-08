@@ -27,7 +27,7 @@ class Item extends Component {
                                 onChange={() => props.shoppingList.actions.checkItem(props.id)}
                             />
                         </Label>
-                        <span>{props.description} - {props.id}</span>
+                        <span>{props.description}</span>
                     </div>
                     <Button size="sm" color="danger" onClick={() => props.shoppingList.actions.removeItem(props.id)}>X</Button>
                 </div>
