@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 
 import { ShoppingListContext } from './ShoppingListContext';
 
-class Provider extends Component {
+class ShoppingListProvider extends Component {
     state = {
-        items: []
+        uuid: 0,
+        items: [],
     }
 
     addItem = (description) => {
         this.setState({
+            uuid: this.state.uuid + 1,
             items: this.state.items.concat({
-                id: this.state.items.length + 1,
+                id: this.state.uuid + 1,
                 description,
                 checked: false,
-            })
+            }),
         });
     }
 
@@ -54,4 +56,4 @@ class Provider extends Component {
     }
 }
 
-export default Provider;
+export default ShoppingListProvider;

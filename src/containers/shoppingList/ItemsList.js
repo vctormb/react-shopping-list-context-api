@@ -14,7 +14,7 @@ class ItemsList extends Component {
     renderUncheckedItems() {
         const props = this.props;
 
-        return props.state.items
+        return props.shoppingList.state.items
             .filter(x => x.checked === false)
             .map((val, index) => (
                 <Item
@@ -29,7 +29,7 @@ class ItemsList extends Component {
     renderCheckedItems() {
         const props = this.props;
 
-        return props.state.items
+        return props.shoppingList.state.items
             .filter(x => x.checked === true)
             .map((val, index) => (
                 <Item

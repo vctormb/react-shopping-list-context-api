@@ -10,7 +10,7 @@ function withShoppingList(Component) {
                     {context =>
                         <Component
                             {...this.props}
-                            {...context}
+                            shoppingList={context}
                         />
                     }
                 </ShoppingListContext.Consumer>

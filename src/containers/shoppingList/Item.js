@@ -24,12 +24,12 @@ class Item extends Component {
                             <Input
                                 type="checkbox"
                                 checked={props.checked}
-                                onChange={() => props.actions.checkItem(props.id)}
+                                onChange={() => props.shoppingList.actions.checkItem(props.id)}
                             />
                         </Label>
                         <span>{props.description} - {props.id}</span>
                     </div>
-                    <Button size="sm" color="danger" onClick={() => props.actions.removeItem(props.id)}>X</Button>
+                    <Button size="sm" color="danger" onClick={() => props.shoppingList.actions.removeItem(props.id)}>X</Button>
                 </div>
             </ListGroupItem>
         )

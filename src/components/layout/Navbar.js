@@ -18,7 +18,7 @@ class TopMenu extends Component {
         return (
             <Fragment>
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">reactstrap</NavbarBrand>
+                    <NavbarBrand>Shopping List</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
